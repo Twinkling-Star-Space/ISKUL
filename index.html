@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Super Sense Seondary School</title>
+  <meta name="description" content="A clean, responsive college homepage inspired by sxc.edu.np with hero banner, notices, news & events, quick links, gallery, and footer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0c1020;              /* page background */
+      --surface:#11162a;         /* cards/nav */
+      --muted:#9aa3b2;           /* secondary text */
+      --text:#e8ecf1;            /* primary text */
+      --brand:#2ec4b6;           /* accent 1 */
+      --brand-2:#6c63ff;         /* accent 2 */
+      --ring:rgba(46,196,182,.35);
+      --max:1150px;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
+    /* CSS Reset (trimmed) */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;line-height:1.6;background:var(--bg);color:var(--text)}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none;margin:0;padding:0}
+
+    /* Layout helpers */
+    .container{max-width:var(--max);margin-inline:auto;padding:0 20px}
+    .pill{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .8rem;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);font-size:.85rem;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:14px;font-weight:600;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* Top bar */
+    .topbar{background:linear-gradient(90deg,rgba(108,99,255,.2),rgba(46,196,182,.2));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:.5rem 0}
+    .topbar .quick{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Header / Nav */
+    header{position:sticky;top:0;z-index:40;background:rgba(12,16,32,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand-logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 4px 14px var(--ring)}
+    .brand h1{font-size:1.05rem;margin:0;line-height:1.1}
+    .nav ul{display:flex;gap:20px}
+    .nav a{padding:.55rem .7rem;border-radius:12px;color:var(--muted)}
+    .nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .menu-toggle{display:none}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate}
+    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:48px 0}
+    .hero .bg{position:absolute;inset:-40px 0 auto 0;height:380px;z-index:-1;background:
+      radial-gradient(900px 300px at 10% 10%,rgba(139, 135, 231, 0.25),transparent 60%),
+      radial-gradient(900px 300px at 90% 5%,rgba(26, 227, 207, 0.25),transparent 60%),
+      linear-gradient(180deg,rgba(255,255,255,.06),transparent 30%)}
+    .hero h2{font-size:clamp(1.6rem,2.8vw,2.5rem);line-height:1.15;margin:6px 0 12px}
+    .hero p{color:var(--muted);margin:0 0 16px}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+/*
+    .hero-card{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .notice-ticker{display:flex;gap:10px;overflow:hidden;align-items:left}
+    .notice-ticker .label{flex:0 0 auto}
+    .ticker{--speed:40s;display:flex;gap:28px;min-width:100%;animation:marquee var(--speed) linear infinite}
+    .ticker a{white-space:nowrap;color:var(--text)}
+    .ticker .date{color:var(--brand)}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+*/
+    /* Grids */
+    .section{padding:28px 0}
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+
+    .card{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .card img{aspect-ratio:16/9;object-fit:cover}
+    .card .body{padding:16px}
+    .eyebrow{letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;color:var(--brand)}
+    .muted{color:var(--muted)}
+
+    /* Quick links */
+    .quick-links{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .ql{display:flex;align-items:center;gap:10px;padding:14px;border:1px dashed rgba(255,255,255,.16);border-radius:16px}
+    .ql i{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--brand-2),var(--brand));flex:0 0 auto}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+    .gallery img{height:120px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.1)}
+
+    /* Footer */
+    footer{margin-top:32px;border-top:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+    .footer-wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:28px 0}
+    .small{font-size:.95rem}
+    .copyright{border-top:1px dashed rgba(255,255,255,.12);padding:14px 0;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero-wrap{grid-template-columns:1fr}
+      .quick-links{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .footer-wrap{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 720px){
+      .nav ul{display:none;position:absolute;inset:60px 16px auto;flex-direction:column;background:var(--surface);padding:10px;border-radius:14px;border:1px solid rgba(255,255,255,.12)}
+      .nav ul.open{display:flex}
+      .menu-toggle{display:inline-flex}
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      .quick-links{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+      .footer-wrap{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Top info bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="pill">Dharapani, Dhanusha</div>
+      <div class="quick">
+        <a class="pill" href="#admissions">Admissions</a>
+        <a class="pill" href="#news">News</a>
+        <a class="pill" href="#events">Events</a>
+        <a class="pill" href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <h1>SUPER SENSE SECONDARY SCHOOL</h1>
+      </a>
+      <nav>
+        <button class="btn menu-toggle" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+        <ul id="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="container hero-wrap">
+      <div>
+        <span class="pill">Dedicated to Excellence, Leadership & Service</span>
+        <h2>Shaping persons of competence, conscience, commitment & compassion.</h2>
+        <p>Welcome to our community of learners guided by Ignatian values and a commitment to social and environmental responsibility.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#admissions">Apply Now →</a>
+          <a class="btn" href="#programs">Explore Programs</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="notice-ticker">
+          <span class="label pill">🔔 Notices</span>
+          <!-- Duplicate ticker content for infinite scroll illusion -->
+          <div class="ticker" aria-live="polite">
+            <a href="#"><span class="date">18 Aug</span> · Entrance Interview List (Class XI)</a>
+            <a href="#"><span class="date">15 Aug</span> · A-Level Admissions 2025 – Now Open</a>
+            <a href="#"><span class="date">11 Aug</span> · 75th Year Jubilee Logo Released</a>
+            <a href="#"><span class="date">18 Aug</span> · Entrance Interview List (Class XI)</a>
+            <a href="#"><span class="date">15 Aug</span> · A-Level Admissions 2025 – Now Open</a>
+            <a href="#"><span class="date">11 Aug</span> · 75th Year Jubilee Logo Released</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="section">
+    <div class="container">
+      <div class="quick-links">
+        <a class="ql" href="#">
+          <i aria-hidden="true"></i>
+          <div>
+            <strong>Online Application</strong>
+            <div class="muted">Submit your application</div>
+          </div>
+        </a>
+        <a class="ql" href="#">
+          <i aria-hidden="true"></i>
+          <div>
+            <strong>Prospectus</strong>
+            <div class="muted">Download PDF</div>
+          </div>
+        </a>
+        <a class="ql" href="#">
+          <i aria-hidden="true"></i>
+          <div>
+            <strong>Calendar</strong>
+            <div class="muted">Academic year</div>
+          </div>
+        </a>
+        <a class="ql" href="#">
+          <i aria-hidden="true"></i>
+          <div>
+            <strong>Scholarships</strong>
+            <div class="muted">Support & aid</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News & Events -->
+  <section id="news" class="section">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:10px">
+        <div>
+          <div class="eyebrow">Happenings</div>
+          <h3 style="margin:.25rem 0 0">News & Events</h3>
+        </div>
+        <a class="btn" href="#">View all</a>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop" alt="Students in a tech lab" />
+          <div class="body">
+            <div class="eyebrow">News · 11 Aug</div>
+            <h4>New Research Lab Inaugurated</h4>
+            <p class="muted">Our state-of-the-art lab opens avenues for undergraduate research and collaboration.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=1200&auto=format&fit=crop" alt="Auditorium event" />
+          <div class="body">
+            <div class="eyebrow">Event · 01 Jul</div>
+            <h4>75 Years Jubilee Inauguration</h4>
+            <p class="muted">Join the community celebration marking a legacy of excellence and service.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop" alt="Library reading" />
+          <div class="body">
+            <div class="eyebrow">Notice · 15 Aug</div>
+            <h4>A-Level Admissions 2025</h4>
+            <p class="muted">Applications are open. Review the prospectus and apply online today.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Snapshot -->
+  <section id="programs" class="section">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:10px">
+        <div>
+          <div class="eyebrow">Academics</div>
+          <h3 style="margin:.25rem 0 0">Programs</h3>
+        </div>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><div class="body"><h4>+2 Science</h4><p class="muted">Biology & Physics tracks under NEB.</p></div></div>
+        <div class="card"><div class="body"><h4>A Level</h4><p class="muted">Cambridge International curriculum.</p></div></div>
+        <div class="card"><div class="body"><h4>Undergraduate</h4><p class="muted">B.Sc., BIM, BBS, BA and more.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:10px">
+        <div>
+          <div class="eyebrow">Campus Life</div>
+          <h3 style="margin:.25rem 0 0">Gallery</h3>
+        </div>
+      </div>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=900&auto=format&fit=crop" alt="Courtyard" />
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=900&auto=format&fit=crop" alt="Lecture hall" />
+        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=900&auto=format&fit=crop" alt="Library" />
+        <img src="https://images.unsplash.com/photo-1596496181863-1bfe5d5f9cde?q=80&w=900&auto=format&fit=crop" alt="Science lab" />
+        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=900&auto=format&fit=crop" alt="Study group" />
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=900&auto=format&fit=crop" alt="Auditorium" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container footer-wrap">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <span class="brand-logo" aria-hidden="true"></span>
+          <h4 style="margin:0">Super Sense Seondary School</h4>
+        </div>
+        <p class="small muted">To develop global citizens who embody academic excellence, moral integrity, spiritual wisdom, social and environmental responsibility, and emotional health.</p>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <ul class="small">
+          <li>📞 +977-1-4221365</li>
+          <li>✉️ info@ssss.edu.np</li>
+          <li>Dharapani, Dhanusha</li>
+        </ul>
+      </div>
+      <div>
+        <strong>Links</strong>
+        <ul class="small">
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#news">News & Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container copyright small">© <span id="year"></span> Super Sense Secondary School. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+    toggleBtn?.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggleBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
