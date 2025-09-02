@@ -1,343 +1,1222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Super Sense Seondary School</title>
-  <meta name="description" content="A clean, responsive college homepage inspired by sxc.edu.np with hero banner, notices, news & events, quick links, gallery, and footer." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>super sense seconday school, Dharapani, Dhanusha</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-  <style>
-    :root{
-      --bg:#0c1020;              /* page background */
-      --surface:#11162a;         /* cards/nav */
-      --muted:#9aa3b2;           /* secondary text */
-      --text:#e8ecf1;            /* primary text */
-      --brand:#2ec4b6;           /* accent 1 */
-      --brand-2:#6c63ff;         /* accent 2 */
-      --ring:rgba(46,196,182,.35);
-      --max:1150px;
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.25);
-    }
+        .top-bar {
+            background: #222;
+            color: #fff;
+            padding: 8px 16px;
+            text-align: right;
+            height: 2pc;
+            margin-bottom: 0px;
+        }
 
-    /* CSS Reset (trimmed) */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;line-height:1.6;background:var(--bg);color:var(--text)}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    ul{list-style:none;margin:0;padding:0}
+        nav {
+            background: #333;
+        }
 
-    /* Layout helpers */
-    .container{max-width:var(--max);margin-inline:auto;padding:0 20px}
-    .pill{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .8rem;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);font-size:.85rem;color:var(--muted)}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:14px;font-weight:600;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));box-shadow:var(--shadow)}
-    .btn:hover{transform:translateY(-1px)}
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-    /* Top bar */
-    .topbar{background:linear-gradient(90deg,rgba(108,99,255,.2),rgba(46,196,182,.2));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:.5rem 0}
-    .topbar .quick{display:flex;gap:10px;flex-wrap:wrap}
+        nav li {
+            margin: 0;
+        }
 
-    /* Header / Nav */
-    header{position:sticky;top:0;z-index:40;background:rgba(12,16,32,.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:.75rem}
-    .brand-logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 4px 14px var(--ring)}
-    .brand h1{font-size:1.05rem;margin:0;line-height:1.1}
-    .nav ul{display:flex;gap:20px}
-    .nav a{padding:.55rem .7rem;border-radius:12px;color:var(--muted)}
-    .nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
-    .menu-toggle{display:none}
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            display: block;
+            text-decoration: none;
+        }
 
-    /* Hero */
-    .hero{position:relative;isolation:isolate}
-    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:48px 0}
-    .hero .bg{position:absolute;inset:-40px 0 auto 0;height:380px;z-index:-1;background:
-      radial-gradient(900px 300px at 10% 10%,rgba(139, 135, 231, 0.25),transparent 60%),
-      radial-gradient(900px 300px at 90% 5%,rgba(26, 227, 207, 0.25),transparent 60%),
-      linear-gradient(180deg,rgba(255,255,255,.06),transparent 30%)}
-    .hero h2{font-size:clamp(1.6rem,2.8vw,2.5rem);line-height:1.15;margin:6px 0 12px}
-    .hero p{color:var(--muted);margin:0 0 16px}
-    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-/*
-    .hero-card{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .notice-ticker{display:flex;gap:10px;overflow:hidden;align-items:left}
-    .notice-ticker .label{flex:0 0 auto}
-    .ticker{--speed:40s;display:flex;gap:28px;min-width:100%;animation:marquee var(--speed) linear infinite}
-    .ticker a{white-space:nowrap;color:var(--text)}
-    .ticker .date{color:var(--brand)}
-    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-*/
-    /* Grids */
-    .section{padding:28px 0}
-    .grid{display:grid;gap:18px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
+        nav a:hover {
+            background: #575757;
+        }
 
-    .card{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-    .card img{aspect-ratio:16/9;object-fit:cover}
-    .card .body{padding:16px}
-    .eyebrow{letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;color:var(--brand)}
-    .muted{color:var(--muted)}
+        .body-section {
+            min-height: 300px;
+            background: #f9f9f9;
+        }
 
-    /* Quick links */
-    .quick-links{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .ql{display:flex;align-items:center;gap:10px;padding:14px;border:1px dashed rgba(255,255,255,.16);border-radius:16px}
-    .ql i{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--brand-2),var(--brand));flex:0 0 auto}
+        #photo {
+            width: 100vw;
+            height: 70vh;
+        }
 
-    /* Gallery */
-    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-    .gallery img{height:120px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.1)}
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 12px 16px;
+            margin-top: 10pc;
+        }
 
-    /* Footer */
-    footer{margin-top:32px;border-top:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
-    .footer-wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:28px 0}
-    .small{font-size:.95rem}
-    .copyright{border-top:1px dashed rgba(255,255,255,.12);padding:14px 0;color:var(--muted)}
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 15pc;
+            align-items: right;
+            justify-content: space-between;
+            background-color: #333;
+        }
 
-    /* Responsive */
-    @media (max-width: 1024px){
-      .hero-wrap{grid-template-columns:1fr}
-      .quick-links{grid-template-columns:repeat(2,1fr)}
-      .grid-3{grid-template-columns:repeat(2,1fr)}
-      .footer-wrap{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 720px){
-      .nav ul{display:none;position:absolute;inset:60px 16px auto;flex-direction:column;background:var(--surface);padding:10px;border-radius:14px;border:1px solid rgba(255,255,255,.12)}
-      .nav ul.open{display:flex}
-      .menu-toggle{display:inline-flex}
-      .grid-3,.grid-2{grid-template-columns:1fr}
-      .quick-links{grid-template-columns:1fr}
-      .gallery{grid-template-columns:repeat(3,1fr)}
-      .footer-wrap{grid-template-columns:1fr}
-    }
-  </style>
+        .principal-photo {
+            display: inline-block;
+            justify-content: right;
+            margin-left: 16px;
+            align-items: center;
+            height: 170px;
+            width: 300px;
+            justify-self: right;
+            padding-top: 2pc;
+        }
+
+        #principalphoto {
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        #quote {
+            background: white;
+            color: black;
+            padding: 16px;
+            margin: 2pc;
+            text-align: center;
+            height: 120px;
+            width: 20pc;
+            display: flex;
+            align-items: center;
+            justify-self: right;
+            font-size: 24px;
+            border-radius: 8px;
+            border: 2px solid #333;
+            justify-content: center;
+        }
+
+        .course {
+            background: #4CAF50;
+            color: white;
+            margin: 16px 0;
+            text-align: center;
+            font-size: 30px;
+            border-radius: 8px;
+            width: 400px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .courses {
+            display: flex;
+            gap: 20px;
+            padding-left: 2pc;
+        }
+
+        .program {
+            text-align: left;
+            margin-top: 2pc;
+            font-size: 38px;
+            background-color: gray;
+            padding-left: 2pc;
+        }
+
+        #principal-info {
+            display: inline-block;
+            text-align: right;
+            margin-top: 8px;
+        }
+
+        #eca-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            text-align: center;
+            font-size: 38px;
+            background-color: gray;
+            padding: 16px;
+        }
+
+        #g {
+            background: #4CAF50;
+            color: white;
+            margin: 16px 16px;
+            text-align: center;
+            font-size: 24px;
+            border-radius: 8px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+
+        }
+
+        #faculty {
+            width: 100vw;
+            height: 90vh;
+            object-fit: cover;
+            margin-top: 2pc;
+        }
+
+        #routine {
+            background: #4CAF50;
+            color: white;
+            margin: 16px 16px;
+            text-align: center;
+            font-size: 24px;
+            border-radius: 8px;
+            height: 200px;
+            width: 300px;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <style>
+        .calendar-container {
+            max-width: 400px;
+            margin: 0 auto 24px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow-x: auto;
+        }
+
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .calendar th,
+        .calendar td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            min-width: 40px;
+        }
+
+        .calendar th {
+            background: #4CAF50;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .calendar-container {
+                max-width: 100%;
+            }
+
+            .calendar th,
+            .calendar td {
+                padding: 4px;
+                min-width: 28px;
+                font-size: 12px;
+            }
+        }
+    </style>
+    <style>
+        /* ...existing code... */
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .result-term {
+            background: #4CAF50;
+            color: #fff;
+            text-align: center;
+            padding: 24px 0;
+            font-size: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 800px) {
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ...existing code... */
+    </style>
+    <style>
+        /* ...existing code... */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .gallery-item {
+            background: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 160px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(5, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(8, 1fr);
+            }
+
+            .gallery-item {
+                height: 120px;
+            }
+        }
+
+        /* ...existing code... */
+    </style>
+    <style>
+        /* ...existing code... */
+        .routine-calendar {
+            margin-bottom: 32px;
+        }
+
+        .routine-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .routine-card {
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .routine-card h3 {
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .routine-btn {
+            margin-top: 16px;
+            padding: 8px 20px;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .routine-btn:hover {
+            background: #388e3c;
+        }
+
+        @media (max-width: 700px) {
+            .routine-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ...existing code... */
+    </style>
+    <style>
+        /* ...existing code... */
+        .questions-form {
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            max-width: 500px;
+            margin: 0 auto 24px auto;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            gap: 16px;
+        }
+
+        .form-row label {
+            min-width: 80px;
+        }
+
+        .form-row select {
+            flex: 1;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .questions-form {
+                padding: 12px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .form-row label {
+                min-width: unset;
+            }
+        }
+
+        /* ...existing code... */
+    </style>
+    <style>
+        /* ...existing code... */
+        #eca-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 24px;
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .eca-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 22px;
+        }
+
+        .eca-card:hover {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.15);
+            background: #e8f5e9;
+        }
+
+        .eca-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 12px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 700px) {
+            #eca-list {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(3, 1fr);
+                gap: 16px;
+                padding: 12px;
+            }
+
+            .eca-card {
+                font-size: 18px;
+                padding: 12px;
+            }
+
+            .eca-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* ...existing code... */
+    </style>
+    <style>
+        /* ...existing code... */
+        .eca-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 22px;
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .eca-card img[alt="Football"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .eca-card img:not([alt="Football"]) {
+            position: static;
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 12px;
+            z-index: 2;
+        }
+
+        .eca-card span {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+    </style>
+    <style>
+        /* ...existing code... */
+        .program {
+            text-align: left;
+            margin-top: 2pc;
+            font-size: 38px;
+            background-color: gray;
+            padding-left: 2pc;
+            padding-bottom: 2pc;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .courses {
+            display: flex;
+            gap: 20px;
+            padding-left: 2pc;
+            margin-bottom: 0;
+        }
+
+        .course {
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            border-radius: 8px;
+            width: 400px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .course:hover {
+            background: #388e3c;
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.15);
+        }
+
+        .slide-info {
+            max-width: 600px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 18px 2pc 0 2pc;
+            padding: 18px 24px;
+            font-size: 22px;
+            display: none;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-info ul {
+            margin: 12px 0 0 0;
+            padding-left: 24px;
+            font-size: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .courses {
+                flex-direction: column;
+                gap: 16px;
+                padding-left: 0;
+            }
+
+            .course {
+                width: 100%;
+                font-size: 22px;
+                height: 60px;
+            }
+
+            .slide-info {
+                margin: 12px 0 0 0;
+                font-size: 18px;
+                padding: 12px 16px;
+            }
+        }
+
+        /* ...existing code... */
+    </style>
+    <script>
+        // Slide toggle for programs
+        function toggleSlide(id) {
+            const slides = document.querySelectorAll('.slide-info');
+            slides.forEach(s => {
+                if (s.id === id) {
+                    s.style.display = (s.style.display === 'block') ? 'none' : 'block';
+                } else {
+                    s.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <style>
+        /* ...existing code... */
+        header {
+            background: linear-gradient(90deg, #222 60%, #4CAF50 100%);
+            color: #fff;
+            height: 8pc;
+            margin-top: 0;
+            font-size: 24px;
+            display: flex;
+            align-items: top;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 32px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 24px;
+
+        }
+
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.12);
+            margin-right: 16px;
+        }
+
+        .school-tagline {
+            font-size: 15px;
+            color: #ffd700;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                height: auto;
+                font-size: 18px;
+                padding: 12px 0;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .school-logo {
+                width: 56px;
+                height: 56px;
+                margin-right: 0;
+            }
+
+            .school-tagline {
+                font-size: 14px;
+            }
+        }
+
+        /* ...existing code... */
+    </style>
+    <style>
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 32px 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+        }
+
+        #quote {
+            background: #fff;
+            color: #222;
+            padding: 18px 24px;
+            border-radius: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            width: 220px;
+            margin: auto;
+        }
+
+        .principal-photo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            height: 170px;
+            width: 300px;
+            justify-self: center;
+            padding-top: 2pc;
+        }
+
+        #principalphoto {
+            height: 120px;
+            width: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #4CAF50;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.12);
+        }
+
+        #principal-info h3 {
+            margin: 8px 0 2px 0;
+            font-size: 20px;
+            color: #ffd700;
+        }
+
+        #principal-info p {
+            margin: 0;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        @media (max-width: 900px) {
+            .info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 18px 8px;
+            }
+
+            .school-details {
+                padding: 16px;
+                font-size: 16px;
+            }
+
+            #quote {
+                font-size: 20px;
+                width: 100%;
+            }
+
+            #principalphoto {
+                height: 80px;
+                width: 80px;
+            }
+        }
+    </style>
+    <style>
+        #faculty {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            margin: 2pc auto 0 auto;
+            display: block;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(76, 175, 80, 0.15);
+            border: 4px solid #4CAF50;
+            transition: transform 0.2s;
+        }
+
+        #faculty:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 32px rgba(76, 175, 80, 0.22);
+        }
+    </style>
 </head>
+
 <body>
-  <!-- Top info bar -->
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <div class="pill">Dharapani, Dhanusha</div>
-      <div class="quick">
-        <a class="pill" href="#admissions">Admissions</a>
-        <a class="pill" href="#news">News</a>
-        <a class="pill" href="#events">Events</a>
-        <a class="pill" href="#contact">Contact</a>
-      </div>
+    <div class="top-bar">
+        Contact us | Login
     </div>
-  </div>
-
-  <!-- Header / Navigation -->
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#">
-        <span class="brand-logo" aria-hidden="true"></span>
-        <h1>SUPER SENSE SECONDARY SCHOOL</h1>
-      </a>
-      <nav>
-        <button class="btn menu-toggle" aria-expanded="false" aria-controls="menu">☰ Menu</button>
-        <ul id="menu">
-          <li><a href="#about">About</a></li>
-          <li><a href="#programs">Programs</a></li>
-          <li><a href="#admissions">Admissions</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+    <header>
+        <div class="header-content">
+            <img src="school-logo.png" alt="School Logo" class="school-logo">
+            <div>
+                <h1 id="schoolname">SUPER SENSE SECONDARY SCHOOL</h1>
+                <p class="school-tagline">Dharapani, Dhanusha &mdash; Excellence in Education</p>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#faculty-section">Faculty</a></li>
+            <li><a href="#programs-section">Programs</a></li>
+            <li><a href="#eca">ECA</a></li>
+            <li><a href="#routine-calendar">Routines</a></li>
+            <li><a href="#calendar-section">Calendar</a></li>
+            <li><a href="#notice-board">Notice Board</a></li>
+            <li><a href="#results-section">Results</a></li>
+            <li><a href="#transportation-section">Transportation</a></li>
+            <li><a href="#gallery-section">Gallery</a></li>
+            <li><a href="#questions-section">Past Years Questions</a></li>
+            <li><a href="#contact-section">Contact</a></li>
         </ul>
-      </nav>
-    </div>
-  </header>
+    </nav>
+    <div class="body-section">
+        <img id="photo" src="image.png" alt="">
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="bg" aria-hidden="true"></div>
-    <div class="container hero-wrap">
-      <div>
-        <span class="pill">Dedicated to Excellence, Leadership & Service</span>
-        <h2>Shaping persons of competence, conscience, commitment & compassion.</h2>
-        <p>Welcome to our community of learners guided by Ignatian values and a commitment to social and environmental responsibility.</p>
-        <div class="hero-cta">
-          <a class="btn" href="#admissions">Apply Now →</a>
-          <a class="btn" href="#programs">Explore Programs</a>
+        <div class="info">
+            <div id="quote">
+                <h3>"YES I CAN"</h3>
+            </div>
+            <div class="principal-photo">
+                <img id="principalphoto" src="image copy.png" alt="Principal">
+                <div id="principal-info">
+                    <h3>Principal</h3>
+                    <p>Mr. Niroj Dhakal</p>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <aside class="hero-card">
-        <div class="notice-ticker">
-          <span class="label pill">🔔 Notices</span>
-          <!-- Duplicate ticker content for infinite scroll illusion -->
-          <div class="ticker" aria-live="polite">
-            <a href="#"><span class="date">18 Aug</span> · Entrance Interview List (Class XI)</a>
-            <a href="#"><span class="date">15 Aug</span> · A-Level Admissions 2025 – Now Open</a>
-            <a href="#"><span class="date">11 Aug</span> · 75th Year Jubilee Logo Released</a>
-            <a href="#"><span class="date">18 Aug</span> · Entrance Interview List (Class XI)</a>
-            <a href="#"><span class="date">15 Aug</span> · A-Level Admissions 2025 – Now Open</a>
-            <a href="#"><span class="date">11 Aug</span> · 75th Year Jubilee Logo Released</a>
-          </div>
+        <div id="faculty-section">
+            <h2>FACULTY MEMBERS</h2>
+            <img id="faculty" src="image copy 2.png" alt="">
         </div>
-      </aside>
-    </div>
-  </section>
 
-  <!-- Quick Links -->
-  <section class="section">
-    <div class="container">
-      <div class="quick-links">
-        <a class="ql" href="#">
-          <i aria-hidden="true"></i>
-          <div>
-            <strong>Online Application</strong>
-            <div class="muted">Submit your application</div>
-          </div>
-        </a>
-        <a class="ql" href="#">
-          <i aria-hidden="true"></i>
-          <div>
-            <strong>Prospectus</strong>
-            <div class="muted">Download PDF</div>
-          </div>
-        </a>
-        <a class="ql" href="#">
-          <i aria-hidden="true"></i>
-          <div>
-            <strong>Calendar</strong>
-            <div class="muted">Academic year</div>
-          </div>
-        </a>
-        <a class="ql" href="#">
-          <i aria-hidden="true"></i>
-          <div>
-            <strong>Scholarships</strong>
-            <div class="muted">Support & aid</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- News & Events -->
-  <section id="news" class="section">
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:10px">
-        <div>
-          <div class="eyebrow">Happenings</div>
-          <h3 style="margin:.25rem 0 0">News & Events</h3>
+        <div class="program" id="programs-section">
+            <h2>Programs</h2>
+            <div class="courses">
+                <div class="course" onclick="toggleSlide('secondary-slide')">SECONDARY COURSES</div>
+                <div class="course" onclick="toggleSlide('bachelor-slide')">BACHELOR COURSES</div>
+            </div>
+            <div id="secondary-slide" class="slide-info">
+                <h3>Secondary Courses</h3>
+                <ul>
+                    <li>Science (Grade 9-10)</li>
+                    <li>Management (Grade 9-10)</li>
+                    <li>Humanities (Grade 9-10)</li>
+                    <li>Computer Science (Grade 9-10)</li>
+                </ul>
+            </div>
+            <div id="bachelor-slide" class="slide-info">
+                <h3>Bachelor Courses</h3>
+                <ul>
+                    <li>Bachelor in Business Studies (BBS)</li>
+                    <li>Bachelor in Education (B.Ed)</li>
+                    <li>Bachelor in Computer Application (BCA)</li>
+                    <li>Bachelor in Science (B.Sc)</li>
+                </ul>
+            </div>
         </div>
-        <a class="btn" href="#">View all</a>
-      </div>
 
-      <div class="grid grid-3">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop" alt="Students in a tech lab" />
-          <div class="body">
-            <div class="eyebrow">News · 11 Aug</div>
-            <h4>New Research Lab Inaugurated</h4>
-            <p class="muted">Our state-of-the-art lab opens avenues for undergraduate research and collaboration.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=1200&auto=format&fit=crop" alt="Auditorium event" />
-          <div class="body">
-            <div class="eyebrow">Event · 01 Jul</div>
-            <h4>75 Years Jubilee Inauguration</h4>
-            <p class="muted">Join the community celebration marking a legacy of excellence and service.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop" alt="Library reading" />
-          <div class="body">
-            <div class="eyebrow">Notice · 15 Aug</div>
-            <h4>A-Level Admissions 2025</h4>
-            <p class="muted">Applications are open. Review the prospectus and apply online today.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- Programs Snapshot -->
-  <section id="programs" class="section">
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:10px">
-        <div>
-          <div class="eyebrow">Academics</div>
-          <h3 style="margin:.25rem 0 0">Programs</h3>
+        <div id="eca">
+            <h2>Extra Curriculum Activities</h2>
+            <div id="eca-list">
+                <div class="eca-card">
+                    <img src="football.png" alt="Football" class="eca-icon"
+                        style="width:60px; height:60px; object-fit: cover;">
+                    <span>Football</span>
+                </div>
+                <div class="eca-card">
+                    <img src="cricket.png" alt="Cricket" class="eca-icon">
+                    <span>Cricket</span>
+                </div>
+                <div class="eca-card">
+                    <img src="badminton.png" alt="Badminton" class="eca-icon">
+                    <span>Badminton</span>
+                </div>
+                <div class="eca-card">
+                    <img src="tabletennis.png" alt="Table Tennis" class="eca-icon">
+                    <span>Table Tennis</span>
+                </div>
+                <div class="eca-card">
+                    <img src="volleyball.png" alt="Volleyball" class="eca-icon">
+                    <span>Volleyball</span>
+                </div>
+                <div class="eca-card">
+                    <img src="chess.png" alt="Chess" class="eca-icon">
+                    <span>Chess</span>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="grid grid-3">
-        <div class="card"><div class="body"><h4>+2 Science</h4><p class="muted">Biology & Physics tracks under NEB.</p></div></div>
-        <div class="card"><div class="body"><h4>A Level</h4><p class="muted">Cambridge International curriculum.</p></div></div>
-        <div class="card"><div class="body"><h4>Undergraduate</h4><p class="muted">B.Sc., BIM, BBS, BA and more.</p></div></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Gallery -->
-  <section id="gallery" class="section">
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:10px">
-        <div>
-          <div class="eyebrow">Campus Life</div>
-          <h3 style="margin:.25rem 0 0">Gallery</h3>
+        <!-- ...existing code... -->
+        <div class="routine-calendar" id="routine-calendar">
+            <h2>ROUTINES</h2>
+            <div class="routine-grid">
+                <div class="routine-card">
+                    <h3>School Routine</h3>
+                    <div id="routine">SCHOOL</div>
+                    <a href="routine-highschool.pdf" download="HighSchoolRoutine.pdf" class="routine-btn">Download
+                        PDF</a>
+                </div>
+                <div class="routine-card">
+                    <h3>Campus Routine</h3>
+                    <div id="routine">CAMPUS</div>
+                    <a href="routine-campus.pdf" download="CampusRoutine.pdf" class="routine-btn">Download PDF</a>
+                </div>
+                <div class="routine-card">
+                    <h3>Exam Routine</h3>
+                    <div id="routine">EXAM</div>
+                    <a href="routine-exam.pdf" download="ExamRoutine.pdf" class="routine-btn">Download PDF</a>
+                </div>
+                <div class="routine-card">
+                    <h3>Holiday List</h3>
+                    <div id="routine">HOLIDAYS</div>
+                    <a href="routine-holidays.pdf" download="HolidayList.pdf" class="routine-btn">Download PDF</a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=900&auto=format&fit=crop" alt="Courtyard" />
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=900&auto=format&fit=crop" alt="Lecture hall" />
-        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=900&auto=format&fit=crop" alt="Library" />
-        <img src="https://images.unsplash.com/photo-1596496181863-1bfe5d5f9cde?q=80&w=900&auto=format&fit=crop" alt="Science lab" />
-        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=900&auto=format&fit=crop" alt="Study group" />
-        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=900&auto=format&fit=crop" alt="Auditorium" />
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="container footer-wrap">
-      <div>
-        <div class="brand" style="margin-bottom:8px">
-          <span class="brand-logo" aria-hidden="true"></span>
-          <h4 style="margin:0">Super Sense Seondary School</h4>
+        <div id="calendar-section">
+            <h2>CALENDER</h2>
+            <div class="calendar-container">
+                <table class="calendar">
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                            <td>30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <p class="small muted">To develop global citizens who embody academic excellence, moral integrity, spiritual wisdom, social and environmental responsibility, and emotional health.</p>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <ul class="small">
-          <li>📞 +977-1-4221365</li>
-          <li>✉️ info@ssss.edu.np</li>
-          <li>Dharapani, Dhanusha</li>
-        </ul>
-      </div>
-      <div>
-        <strong>Links</strong>
-        <ul class="small">
-          <li><a href="#admissions">Admissions</a></li>
-          <li><a href="#programs">Programs</a></li>
-          <li><a href="#news">News & Events</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-        </ul>
-      </div>
+
+
+        <div id="notice-board">
+            <h2>NOTICE BOARD</h2>
+            <div id="notice-board"
+                style="background: #fffbe6; border: 2px solid #ffd700; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+                <ul style="list-style: disc; padding-left: 24px; font-size: 20px;">
+                    <li>Admission open for new session 2082!</li>
+                    <li>Parent-Teacher meeting on 15th Bhadra.</li>
+                    <li>Annual Sports Week starts from 20th Bhadra.</li>
+                    <li>Exam routine will be published soon.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="results-section">
+            <h2>RESULTS</h2>
+            <div class="results-grid">
+                <div class="result-term">
+                    FIRST TERM
+                    <select style="margin-top:12px;">
+                        <option disabled selected>Select Class</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                    </select>
+                </div>
+                <div class="result-term">
+                    SECOND TERM
+                    <select style="margin-top:12px;">
+                        <option disabled selected>Select Class</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                    </select>
+                </div>
+                <div class="result-term">
+                    THIRD TERM
+                    <select style="margin-top:12px;">
+                        <option disabled selected>Select Class</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                    </select>
+                </div>
+                <div class="result-term">
+                    FOURTH TERM
+                    <select style="margin-top:12px;">
+                        <option disabled selected>Select Class</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="transportation-section">
+            <h2>TRANSPORTATION</h2>
+            <p> include map</p>
+            <div style="max-width:600px; margin: 16px auto;">
+                <iframe
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=85.9000%2C26.9000%2C86.0000%2C27.0000&amp;layer=mapnik"
+                    style="width:100%; height:400px; border:1px solid #ccc; border-radius:8px;" allowfullscreen
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div style="text-align:right; font-size:12px;">
+                    <a href="https://www.openstreetmap.org/" target="_blank">View Larger Map</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="gallery-section">
+            <h2>GALLERY</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="gallery1.jpg" alt="Gallery 1" /></div>
+                <div class="gallery-item"><img src="gallery2.jpg" alt="Gallery 2" /></div>
+                <div class="gallery-item"><img src="gallery3.jpg" alt="Gallery 3" /></div>
+                <div class="gallery-item"><img src="gallery4.jpg" alt="Gallery 4" /></div>
+                <div class="gallery-item"><img src="gallery5.jpg" alt="Gallery 5" /></div>
+                <div class="gallery-item"><img src="gallery6.jpg" alt="Gallery 6" /></div>
+                <div class="gallery-item"><img src="gallery7.jpg" alt="Gallery 7" /></div>
+                <div class="gallery-item"><img src="gallery8.jpg" alt="Gallery 8" /></div>
+                <div class="gallery-item"><img src="gallery9.jpg" alt="Gallery 9" /></div>
+                <div class="gallery-item"><img src="gallery10.jpg" alt="Gallery 10" /></div>
+                <div class="gallery-item"><img src="gallery11.jpg" alt="Gallery 11" /></div>
+                <div class="gallery-item"><img src="gallery12.jpg" alt="Gallery 12" /></div>
+                <div class="gallery-item"><img src="gallery13.jpg" alt="Gallery 13" /></div>
+                <div class="gallery-item"><img src="gallery14.jpg" alt="Gallery 14" /></div>
+                <div class="gallery-item"><img src="gallery15.jpg" alt="Gallery 15" /></div>
+            </div>
+        </div>
+
+        <div id="questions-section">
+            <h2>PAST YEARS QUESTIONS</h2>
+            <div class="questions-form">
+                <div class="form-row">
+                    <label for="year-select"><strong>Year:</strong></label>
+                    <select id="year-select">
+                        <option disabled selected>Select Year</option>
+                        <option value="2081">2081</option>
+                        <option value="2080">2080</option>
+                        <option value="2079">2079</option>
+                        <option value="2078">2078</option>
+                        <option value="2077">2077</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="subject-select"><strong>Subject:</strong></label>
+                    <select id="subject-select">
+                        <option disabled selected>Select Subject</option>
+                        <option value="Nepali">Nepali</option>
+                        <option value="English">English</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Accountant">Accountant</option>
+                        <option value="Social Studies">Social Studies</option>
+                        <option value="Computer">Computer</option>
+                        <option value="EPH">EPH</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="class-select"><strong>Class:</strong></label>
+                    <select id="class-select">
+                        <option disabled selected>Select Class</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <button type="button"
+                        style="padding:8px 24px; font-size:16px; background:#4CAF50; color:#fff; border:none; border-radius:6px; cursor:pointer;">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="notice-popup" style="
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.4);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+    ">
+            <div style="
+            background: #fffbe6;
+            border: 2px solid #ffd700;
+            border-radius: 12px;
+            padding: 32px 24px;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+            position: relative;
+        ">
+                <h2 style="color:#222; margin-bottom:16px;">NOTICE</h2>
+                <ul style="list-style: disc; padding-left: 24px; font-size: 18px; text-align:left;">
+                    <li>Admission open for new session 2082!</li>
+                    <li>Parent-Teacher meeting on 15th Bhadra.</li>
+                    <li>Annual Sports Week starts from 20th Bhadra.</li>
+                    <li>Exam routine will be published soon.</li>
+                </ul>
+                <button id="close-notice" style="
+                margin-top: 24px;
+                padding: 8px 24px;
+                background: #ffd700;
+                color: #222;
+                border: none;
+                border-radius: 6px;
+                font-size: 16px;
+                cursor: pointer;
+            ">Close</button>
+            </div>
+        </div>
+
+        <!-- ...existing code... -->
+        <footer>
+            &copy; 2025 SUPER SENSE SECONDARY SCHOOL. All rights reserved.
+        </footer>
+        <div id="bottom-section" style="background: #eee; padding: 24px; text-align: center;">
+            <h2>DHARAPANI-9, DHANUSHA</h2>
+            <p> Best college in Nepal</p>
+        </div>
+        <script>
+            // Show notice popup on page load
+            window.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('notice-popup').style.display = 'flex';
+            });
+            // Close popup
+            document.getElementById('close-notice').onclick = function () {
+                document.getElementById('notice-popup').style.display = 'none';
+            };
+        </script>
+
     </div>
-    <div class="container copyright small">© <span id="year"></span> Super Sense Secondary School. All rights reserved.</div>
-  </footer>
 
-  <script>
-    // Mobile menu toggle
-    const toggleBtn = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('menu');
-    toggleBtn?.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      toggleBtn.setAttribute('aria-expanded', String(open));
-    });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    </div>
 </body>
-</html>
