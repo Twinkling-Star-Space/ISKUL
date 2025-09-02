@@ -1,85 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Sense Secondary School</title>
-  <meta name="description" content="Official website of Super Sense Secondary School - admissions, news, events, and more.">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Sense Secondary School</title>
+<style>
+/* ===== RESET & BASE ===== */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+    background: #f9f9f9;
+    color: #333;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 8px 0;
+}
+
+/* ===== HEADER ===== */
+.top-bar {
+    background: #222;
+    color: #fff;
+    text-align: right;
+    padding: 8px 16px;
+}
+
+header {
+    background: linear-gradient(90deg, #222 60%, #4CAF50 100%);
+    color: #fff;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 16px;
+}
+
+.school-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: #fff;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    background: #333;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    flex: 1;
+    text-align: center;
+}
+nav a {
+    color: #fff;
+    padding: 14px 20px;
+    display: block;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: #4CAF50;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 2px;
+    background: #4CAF50;
+    transition: transform 0.3s ease;
+}
+nav a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ===== HERO SECTION (PARALLAX) ===== */
+.hero {
+    background: url('https://via.placeholder.com/1200x400') no-repeat center/cover;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+
+/* ===== SCROLL ANIMATION BASE ===== */
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== CARDS & HOVER ===== */
+.eca-card, .course, .gallery-item {
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    margin: 12px;
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.eca-card:hover, .course:hover, .gallery-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== GALLERY IMAGE ZOOM ===== */
+.gallery-item img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* ===== BUTTONS ===== */
+.routine-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.routine-btn:hover {
+    background: #388e3c;
+    transform: translateY(-3px);
+}
+
+/* ===== STAGGER ANIMATION ===== */
+.stagger-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.stagger-container .stagger-item {
+    opacity: 0;
+    transform: translateY(40px);
+}
+.stagger-container.visible .stagger-item {
+    animation: fadeUp 0.8s forwards;
+}
+.stagger-container.visible .stagger-item:nth-child(1) { animation-delay: 0.2s; }
+.stagger-container.visible .stagger-item:nth-child(2) { animation-delay: 0.4s; }
+.stagger-container.visible .stagger-item:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+</style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#">
-        <span class="brand-logo"></span>
-        <h1>SUPER SENSE SECONDARY SCHOOL</h1>
-      </a>
-      <nav>
-        <button class="btn menu-toggle">☰ Menu</button>
-        <ul id="menu">
-          <li><a href="#about">About</a></li>
-          <li><a href="#programs">Programs</a></li>
-          <li><a href="#admissions">Admissions</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    Contact: info@supersense.edu | +977-9800000000
+</div>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero container">
-    <div class="schoolphoto">
-      <img id="photo" src="image.png" alt="school picture">
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="header-content">
+        <img src="https://via.placeholder.com/80" alt="Logo" class="school-logo">
+        <h1>Super Sense Secondary School</h1>
     </div>
-    <div>
-      <span class="pill">Dedicated to Excellence, Leadership & Service</span>
-      <h2>Shaping persons of competence, conscience, commitment & compassion.</h2>
-      <p>Welcome to our community of learners guided by Ignatian values and a commitment to social and environmental responsibility.</p>
-      <div class="hero-cta">
-        <a class="btn" href="#admissions">Apply Now →</a>
-        <a class="btn" href="#programs">Explore Programs</a>
-      </div>
-    </div>
-    <aside>
-      <!-- Notices section (optional ticker can be added later) -->
-    </aside>
-  </section>
+</header>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="container footer-wrap">
-      <div>
-        <h4>Super Sense Secondary School</h4>
-        <p class="small">To develop global citizens who embody academic excellence, integrity, and responsibility.</p>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <ul class="small">
-          <li>📞 +977-1-4221365</li>
-          <li>✉️ info@ssss.edu.np</li>
-          <li>Dharapani, Dhanusha</li>
-        </ul>
-      </div>
-      <div>
-        <strong>Links</strong>
-        <ul class="small">
-          <li><a href="#admissions">Admissions</a></li>
-          <li><a href="#programs">Programs</a></li>
-          <li><a href="#news">News & Events</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-        </ul>
-      </div>
+<!-- ===== NAVIGATION ===== -->
+<nav>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#faculty">Faculty</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#eca">ECA</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="hero">
+    Welcome to Super Sense School
+</section>
+
+<!-- ===== FACULTY SECTION ===== -->
+<section id="faculty" class="section">
+    <h2>Meet Our Faculty</h2>
+    <p>Experienced and dedicated teachers guiding students to success.</p>
+</section>
+
+<!-- ===== PROGRAMS SECTION ===== -->
+<section id="programs" class="section">
+    <h2>Our Programs</h2>
+    <div class="stagger-container">
+        <div class="course stagger-item">Science</div>
+        <div class="course stagger-item">Management</div>
+        <div class="course stagger-item">Humanities</div>
     </div>
-    <div class="container small" style="text-align:center;">
-      © <span id="year"></span> Super Sense Secondary School. All rights reserved.
+</section>
+
+<!-- ===== ECA SECTION ===== -->
+<section id="eca" class="section">
+    <h2>Extra Curricular Activities</h2>
+    <div class="stagger-container">
+        <div class="eca-card stagger-item">Sports</div>
+        <div class="eca-card stagger-item">Music</div>
+        <div class="eca-card stagger-item">Debate</div>
     </div>
-  </footer>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="section">
+    <h2>Our Gallery</h2>
+    <div class="stagger-container">
+        <div class="gallery-item stagger-item"><img src="https://via.placeholder.com/300x200" alt="Gallery 1"></div>
+        <div class="gallery-item stagger-item"><img src="https://via.placeholder.com/300x200" alt="Gallery 2"></div>
+        <div class="gallery-item stagger-item"><img src="https://via.placeholder.com/300x200" alt="Gallery 3"></div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <button class="routine-btn">Download Routine</button>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    © 2025 Super Sense School. All Rights Reserved.
+</footer>
+
+<script>
+// ===== SCROLL REVEAL ANIMATIONS =====
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+// ===== STAGGER ANIMATION FOR CONTAINERS =====
+const staggerContainers = document.querySelectorAll('.stagger-container');
+const staggerObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.3 });
+
+staggerContainers.forEach(container => {
+    staggerObserver.observe(container);
+});
+</script>
 </body>
 </html>
