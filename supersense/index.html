@@ -19,6 +19,7 @@
         }
     </script>
 
+
 </head>
 
 <body>
@@ -58,7 +59,7 @@
 
         <div class="info">
             <div class="principal-photo">
-                <img id="principalphoto" src="principal.png" alt="Principal">
+                <img id="principalphoto" src="nirojsir.jpg" alt="Principal">
                 <div id="principal-info">
                     <h3>Principal</h3>
                     <p>Mr. Niroj Dhakal</p>
@@ -67,7 +68,8 @@
             </div>
             <p class="quote">
                 <span class="quote-symbol">“</span>
-                Education is the most powerful weapon which you can use to change the world.
+                A great principal doesn’t just lead a school — they light the way, turning hallways into runways for
+                every student’s dreams to take flight.
                 <span class="quote-symbol">”</span>
             </p>
         </div>
@@ -87,10 +89,10 @@
             <div id="secondary-slide" class="slide-info">
                 <h3>Secondary Courses</h3>
                 <ul>
-                    <li>Science (Grade 9-10)</li>
-                    <li>Management (Grade 9-10)</li>
-                    <li>Humanities (Grade 9-10)</li>
-                    <li>Computer Science (Grade 9-10)</li>
+                    <>Science (Grade 9-10)</li>
+                        <li>Management (Grade 9-10)</li>
+                        <li>Humanities (Grade 9-10)</li>
+                        <li>Computer Science (Grade 9-10)</li>
                 </ul>
             </div>
 
@@ -99,8 +101,6 @@
                 <ul>
                     <li>Bachelor in Business Studies (BBS)</li>
                     <li>Bachelor in Education (B.Ed)</li>
-                    <li>Bachelor in Computer Application (BCA)</li>
-                    <li>Bachelor in Science (B.Sc)</li>
                 </ul>
             </div>
         </div>
@@ -119,27 +119,27 @@
                 </div>
                 <div class="eca-card">
                     <img src="cricket.png" alt="Cricket" class="eca-icon"
-                    style="width:100%; height:100%; object-fit: cover;">
+                        style="width:100%; height:100%; object-fit: cover;">
                     <span>Cricket</span>
                 </div>
                 <div class="eca-card">
                     <img src="badminton.png" alt="Badminton" class="eca-icon"
-                    style="width:100%; height:100%; object-fit: cover;">
+                        style="width:100%; height:100%; object-fit: cover;">
                     <span>Badminton</span>
                 </div>
                 <div class="eca-card">
                     <img src="tabletennis.png" alt="Table Tennis" class="eca-icon"
-                    style="width:100%; height:100%; object-fit: cover;">
+                        style="width:100%; height:100%; object-fit: cover;">
                     <span>Table Tennis</span>
                 </div>
                 <div class="eca-card">
                     <img src="volleyball.png" alt="Volleyball" class="eca-icon"
-                    style="width:100%; height:100%; object-fit: cover;">
+                        style="width:100%; height:100%; object-fit: cover;">
                     <span>Volleyball</span>
                 </div>
                 <div class="eca-card">
                     <img src="chess.png" alt="Chess" class="eca-icon"
-                    style="width:100%; height:100%; object-fit: cover;">
+                        style="width:100%; height:100%; object-fit: cover;">
                     <span>Chess</span>
                 </div>
             </div>
@@ -178,8 +178,10 @@
 
         <div id="calendar-section">
             <div class="calendar-header">
-                <h1>CALENDER</h1>
+                <h1>CALENDAR</h1>
             </div>
+
+            <div class="real-time-info" id="realTimeInfo"></div>
 
             <div class="calendar-container">
                 <table class="calendar">
@@ -198,44 +200,44 @@
                         <tr>
                             <td></td>
                             <td></td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
+                            <td id="day-1">1</td>
+                            <td id="day-2">2</td>
+                            <td id="day-3">3</td>
+                            <td id="day-4">4</td>
+                            <td id="day-5">5</td>
                         </tr>
                         <tr>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                            <td>9</td>
-                            <td>10</td>
-                            <td>11</td>
-                            <td>12</td>
+                            <td id="day-6">6</td>
+                            <td id="day-7">7</td>
+                            <td id="day-8">8</td>
+                            <td id="day-9">9</td>
+                            <td id="day-10">10</td>
+                            <td id="day-11">11</td>
+                            <td id="day-12">12</td>
                         </tr>
                         <tr>
-                            <td>13</td>
-                            <td>14</td>
-                            <td>15</td>
-                            <td>16</td>
-                            <td>17</td>
-                            <td>18</td>
-                            <td>19</td>
+                            <td id="day-13">13</td>
+                            <td id="day-14">14</td>
+                            <td id="day-15">15</td>
+                            <td id="day-16">16</td>
+                            <td id="day-17">17</td>
+                            <td id="day-18">18</td>
+                            <td id="day-19">19</td>
                         </tr>
                         <tr>
-                            <td>20</td>
-                            <td>21</td>
-                            <td>22</td>
-                            <td>23</td>
-                            <td>24</td>
-                            <td>25</td>
-                            <td>26</td>
+                            <td id="day-20">20</td>
+                            <td id="day-21">21</td>
+                            <td id="day-22">22</td>
+                            <td id="day-23">23</td>
+                            <td id="day-24">24</td>
+                            <td id="day-25">25</td>
+                            <td id="day-26">26</td>
                         </tr>
                         <tr>
-                            <td>27</td>
-                            <td>28</td>
-                            <td>29</td>
-                            <td>30</td>
+                            <td id="day-27">27</td>
+                            <td id="day-28">28</td>
+                            <td id="day-29">29</td>
+                            <td id="day-30">30</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -263,7 +265,7 @@
         </div>
         <div id="results-section">
             <div id="results-header">
-                <h2>RESULTS</h2>
+                <h1>RESULTS</h1>
             </div>
 
             <div class="results-grid">
@@ -324,8 +326,10 @@
             <div style="max-width:1000px; max-height: 1200px; margin: 16px auto;">
                 <h2>Our Location</h2>
                 <div style="width: 100%; height: 400px;">
-                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.911729664807!2d86.04361827536265!3d26.906296376651003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ec115e0fac5db5%3A0x4469b1484da51c!2sSupersense%20secondary%20english%20school%20and%20Yagnyabhumi%20multiple%20campus!5e0!3m2!1sen!2snp!4v1756968279623!5m2!1sen!2snp" 
-                       width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.911729664807!2d86.04361827536265!3d26.906296376651003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ec115e0fac5db5%3A0x4469b1484da51c!2sSupersense%20secondary%20english%20school%20and%20Yagnyabhumi%20multiple%20campus!5e0!3m2!1sen!2snp!4v1756968279623!5m2!1sen!2snp"
+                        width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div style="text-align:right; font-size:12px;">
                     <a href="https://www.openstreetmap.org/" target="_blank">View Larger Map</a>
@@ -339,21 +343,21 @@
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="gallery1.jpg" alt="Gallery 1" /></div>
-                <div class="gallery-item"><img src="gallery2.jpg" alt="Gallery 2" /></div>
-                <div class="gallery-item"><img src="gallery3.jpg" alt="Gallery 3" /></div>
+                <div class="gallery-item"><img src="football.png" alt="Gallery 1" /></div>
+                <div class="gallery-item"><img src="cricket.png" alt="Gallery 2" /></div>
+                <div class="gallery-item"><img src="chess.png" alt="Gallery 3" /></div>
                 <div class="gallery-item"><img src="gallery4.jpg" alt="Gallery 4" /></div>
-                <div class="gallery-item"><img src="gallery5.jpg" alt="Gallery 5" /></div>
-                <div class="gallery-item"><img src="gallery6.jpg" alt="Gallery 6" /></div>
+                <div class="gallery-item"><img src="tabletennis.png" alt="Gallery 5" /></div>
+                <div class="gallery-item"><img src="volleyball.png" alt="Gallery 6" /></div>
                 <div class="gallery-item"><img src="gallery7.jpg" alt="Gallery 7" /></div>
                 <div class="gallery-item"><img src="gallery8.jpg" alt="Gallery 8" /></div>
-                <div class="gallery-item"><img src="gallery9.jpg" alt="Gallery 9" /></div>
+                <div class="gallery-item"><img src="graduation.png" alt="Gallery 9" /></div>
                 <div class="gallery-item"><img src="gallery10.jpg" alt="Gallery 10" /></div>
                 <div class="gallery-item"><img src="gallery11.jpg" alt="Gallery 11" /></div>
-                <div class="gallery-item"><img src="gallery12.jpg" alt="Gallery 12" /></div>
-                <div class="gallery-item"><img src="gallery13.jpg" alt="Gallery 13" /></div>
+                <div class="gallery-item"><img src="celebration.png" alt="Gallery 12" /></div>
+                <div class="gallery-item"><img src="race.png" alt="Gallery 13" /></div>
                 <div class="gallery-item"><img src="gallery14.jpg" alt="Gallery 14" /></div>
-                <div class="gallery-item"><img src="gallery15.jpg" alt="Gallery 15" /></div>
+                <div class="gallery-item"><img src="wallmagazine.png" alt="Gallery 15" /></div>
             </div>
         </div>
 
@@ -470,6 +474,44 @@
                 document.getElementById('notice-popup').style.display = 'none';
             };
         </script>
+
+        <script>
+            function updateRealTime() {
+                const now = new Date();
+
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
+
+                const formattedDate = now.toLocaleDateString(undefined, options);
+                const formattedTime = now.toLocaleTimeString();
+
+                document.getElementById("realTimeInfo").textContent = `${formattedDate} | ${formattedTime}`;
+
+                // Highlight today's date if it exists in the table
+                const day = now.getDate();
+                const cell = document.getElementById(`day-${day}`);
+
+                if (cell) {
+                    // Remove any previous highlights
+                    document.querySelectorAll('.calendar td').forEach(td => {
+                        td.classList.remove('today');
+                    });
+
+                    cell.classList.add('today');
+                }
+            }
+
+            // Run on load
+            updateRealTime();
+
+            // Update every second
+            setInterval(updateRealTime, 1000);
+        </script>
+
 
     </div>
 

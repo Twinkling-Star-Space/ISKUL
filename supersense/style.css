@@ -65,10 +65,10 @@ nav a:hover::after {
 
 footer {
     background: #388e3c;
-    color: green;
+    color: white;
     text-align: center;
     padding: 12px 16px;
-    margin-top: 10pc;
+
 }
 
 
@@ -126,12 +126,7 @@ footer {
 
 }
 
-#faculty {
-    width: 100vw;
-    height: 90vh;
-    object-fit: cover;
-    margin-top: 2pc;
-}
+
 
 #routine {
     background: #4CAF50;
@@ -152,12 +147,13 @@ footer {
 }
 
 .calendar-container {
-    max-width: 400px;
+    max-width: 700px;
     margin: 0 auto 24px auto;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     overflow-x: auto;
+    height: 20pc;
 }
 
 .calendar {
@@ -170,7 +166,9 @@ footer {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
-    min-width: 40px;
+    min-width: 60px;
+    width: 4pc;
+    height: 2.25pc;
 }
 
 .calendar th {
@@ -230,6 +228,7 @@ footer {
     grid-template-rows: repeat(5, 1fr);
     gap: 16px;
     margin-bottom: 24px;
+    padding: 1pc;
 }
 
 .gallery-item {
@@ -239,7 +238,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 160px;
+    height: 250px;
 }
 
 .gallery-item img {
@@ -267,10 +266,11 @@ footer {
 }
 
 /* ...existing code... */
-.routine-header{
+.routine-header {
     text-align: center;
     margin-bottom: 16px;
 }
+
 /* ...existing code... */
 .routine-calendar {
     margin-bottom: 32px;
@@ -278,8 +278,8 @@ footer {
 
 .routine-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
     margin-top: 16px;
 }
 
@@ -368,10 +368,11 @@ footer {
 }
 
 /* ...existing code... */
-.eca-header{
+.eca-header {
     text-align: center;
     margin-bottom: 16px;
 }
+
 /* ...existing code... */
 #eca-list {
     display: grid;
@@ -447,7 +448,12 @@ footer {
     position: relative;
 }
 
-.eca-card img[alt="Football"], .eca-card img[alt="Cricket"], .eca-card img[alt="Badminton"], .eca-card img[alt="Table Tennis"], .eca-card img[alt="Volleyball"], .eca-card img[alt="Chess"] {
+.eca-card img[alt="Football"],
+.eca-card img[alt="Cricket"],
+.eca-card img[alt="Badminton"],
+.eca-card img[alt="Table Tennis"],
+.eca-card img[alt="Volleyball"],
+.eca-card img[alt="Chess"] {
     position: absolute;
     top: 0;
     left: 0;
@@ -457,7 +463,12 @@ footer {
     z-index: 1;
 }
 
-.eca-card img:not([alt="Football"]), .eca-card img:not([alt="Cricket"]), .eca-card img:not([alt="Badminton"]), .eca-card img:not([alt="Table Tennis"]), .eca-card img:not([alt="Volleyball"]), .eca-card img:not([alt="Chess"]) {
+.eca-card img:not([alt="Football"]),
+.eca-card img:not([alt="Cricket"]),
+.eca-card img:not([alt="Badminton"]),
+.eca-card img:not([alt="Table Tennis"]),
+.eca-card img:not([alt="Volleyball"]),
+.eca-card img:not([alt="Chess"]) {
     position: static;
     width: 60px;
     height: 60px;
@@ -478,7 +489,7 @@ footer {
 }
 
 .program {
-    display:flex;
+    display: flex;
     flex-direction: column;
     text-align: center;
     margin-top: 2pc;
@@ -487,7 +498,7 @@ footer {
     padding-bottom: 2pc;
     border-radius: 12px;
     position: relative;
-    height:25pc;
+    height: 25pc;
     background-color: white;
 }
 
@@ -526,9 +537,9 @@ footer {
     background: #d3e810;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    margin-left:22pc;
-    padding-top:0.5pc;
-    padding-bottom:2pc;
+    margin-left: 22pc;
+    padding-top: 0.5pc;
+    padding-bottom: 2pc;
     font-size: 22px;
     display: none;
     animation: slideDown 0.4s ease;
@@ -614,6 +625,7 @@ header {
     color: #ffd700;
     font-weight: 400;
     letter-spacing: 1px;
+    margin-top: 0px;
 }
 
 @media (max-width: 700px) {
@@ -651,19 +663,20 @@ header {
 }
 
 .quote {
-  font-size: 40px;
-  font-style: italic;
-  position: relative;
-  margin-left:0px;
-  display:flex;
+    font-size: 40px;
+    font-style: italic;
+    position: relative;
+    margin-left: 0px;
+    display: flex;
     justify-content: center;
 }
 
 .quote-symbol {
-  font-size: 50px; /* make the quotation mark bigger */
-  color: #888;
-  vertical-align:center;
-  line-height: 0.6;
+    font-size: 50px;
+    /* make the quotation mark bigger */
+    color: #888;
+    vertical-align: center;
+    line-height: 0.6;
 }
 
 .principal-photo {
@@ -671,9 +684,10 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    height: 400px;
-    width: 300px;
+    height: 500px;
+    width: 200px;
     justify-self: center;
+    object-fit:cover;
     padding-top: 2pc;
 }
 
@@ -731,7 +745,7 @@ header {
     #faculty {
         width: 100%;
         max-width: 900px;
-        height: auto;
+        height: 40pc;
         aspect-ratio: 16/9;
         object-fit: cover;
         margin: 2pc auto 0 auto;
@@ -748,29 +762,54 @@ header {
     }
 }
 
-.calendar-header{
+.calendar-header {
     text-align: center;
     margin-bottom: 16px;
 }
-#notice-header{
+
+#notice-header {
     text-align: center;
     margin-bottom: 16px;
 }
-#results-header{
+
+#results-header {
     text-align: center;
     margin-bottom: 16px;
 }
-#transportation-header{
+
+#transportation-header {
     text-align: center;
     margin-bottom: 16px;
 }
-#gallery-header{
+
+#gallery-header {
     text-align: center;
     margin-bottom: 16px;
 }
-#questions-header{
+
+#questions-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+#result-header {
     text-align: center;
     margin-bottom: 16px;
 }
 
 
+.real-time-info {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+/* Highlight today inside calendar */
+.calendar td.today {
+    background-color: #14ce5e;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+}
