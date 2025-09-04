@@ -267,7 +267,10 @@ footer {
 }
 
 /* ...existing code... */
-
+.routine-header{
+    text-align: center;
+    margin-bottom: 16px;
+}
 /* ...existing code... */
 .routine-calendar {
     margin-bottom: 32px;
@@ -365,7 +368,10 @@ footer {
 }
 
 /* ...existing code... */
-
+.eca-header{
+    text-align: center;
+    margin-bottom: 16px;
+}
 /* ...existing code... */
 #eca-list {
     display: grid;
@@ -441,7 +447,7 @@ footer {
     position: relative;
 }
 
-.eca-card img[alt="Football"] {
+.eca-card img[alt="Football"], .eca-card img[alt="Cricket"], .eca-card img[alt="Badminton"], .eca-card img[alt="Table Tennis"], .eca-card img[alt="Volleyball"], .eca-card img[alt="Chess"] {
     position: absolute;
     top: 0;
     left: 0;
@@ -451,7 +457,7 @@ footer {
     z-index: 1;
 }
 
-.eca-card img:not([alt="Football"]) {
+.eca-card img:not([alt="Football"]), .eca-card img:not([alt="Cricket"]), .eca-card img:not([alt="Badminton"]), .eca-card img:not([alt="Table Tennis"]), .eca-card img:not([alt="Volleyball"]), .eca-card img:not([alt="Chess"]) {
     position: static;
     width: 60px;
     height: 60px;
@@ -472,6 +478,8 @@ footer {
 }
 
 .program {
+    display:flex;
+    flex-direction: column;
     text-align: center;
     margin-top: 2pc;
     font-size: 18px;
@@ -479,14 +487,17 @@ footer {
     padding-bottom: 2pc;
     border-radius: 12px;
     position: relative;
-    height:15pc;
+    height:25pc;
+    background-color: white;
 }
+
 
 .courses {
     display: flex;
     gap: 20px;
     padding-left: 2pc;
     margin-bottom: 0;
+    justify-content: center;
 }
 
 .course {
@@ -511,12 +522,13 @@ footer {
 }
 
 .slide-info {
-    max-width: 600px;
-    background: #fff;
+    max-width: 800px;
+    background: #d3e810;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    margin: 18px 2pc 0 2pc;
-    padding: 18px 24px;
+    margin-left:22pc;
+    padding-top:0.5pc;
+    padding-bottom:2pc;
     font-size: 22px;
     display: none;
     animation: slideDown 0.4s ease;
@@ -638,12 +650,20 @@ header {
     justify-content: space-between;
 }
 
+.quote {
+  font-size: 40px;
+  font-style: italic;
+  position: relative;
+  margin-left:0px;
+  display:flex;
+    justify-content: center;
+}
 
-#quote {
-    color: #222;
-    font-size: 18px;
-    width: 600px;
-    margin-top: 5pc;
+.quote-symbol {
+  font-size: 50px; /* make the quotation mark bigger */
+  color: #888;
+  vertical-align:center;
+  line-height: 0.6;
 }
 
 .principal-photo {
@@ -673,7 +693,7 @@ header {
 
 #principal-info p {
     font-size: 16px;
-    color: #fff;
+    color: #18bb8f;
 }
 
 @media (max-width: 900px) {
@@ -727,3 +747,30 @@ header {
         box-shadow: 0 8px 32px rgba(76, 175, 80, 0.22);
     }
 }
+
+.calendar-header{
+    text-align: center;
+    margin-bottom: 16px;
+}
+#notice-header{
+    text-align: center;
+    margin-bottom: 16px;
+}
+#results-header{
+    text-align: center;
+    margin-bottom: 16px;
+}
+#transportation-header{
+    text-align: center;
+    margin-bottom: 16px;
+}
+#gallery-header{
+    text-align: center;
+    margin-bottom: 16px;
+}
+#questions-header{
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+

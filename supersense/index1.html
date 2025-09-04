@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Sense Secondary School</title>
+
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    Contact: info@supersense.edu | +977-9800000000
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="header-content">
+        <img src="https://via.placeholder.com/80" alt="Logo" class="school-logo">
+        <h1>Super Sense Secondary School</h1>
+    </div>
+</header>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#faculty">Faculty</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#eca">ECA</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="hero">
+    Welcome to Super Sense School
+</section>
+
+<!-- ===== FACULTY SECTION ===== -->
+<section id="faculty" class="section">
+    <h2>Meet Our Faculty</h2>
+    <p>Experienced and dedicated teachers guiding students to success.</p>
+</section>
+
+<!-- ===== PROGRAMS SECTION ===== -->
+<section id="programs" class="section">
+    <h2>Our Programs</h2>
+    <div class="stagger-container">
+        <div class="course stagger-item">Science</div>
+        <div class="course stagger-item">Management</div>
+        <div class="course stagger-item">Humanities</div>
+    </div>
+</section>
+
+<!-- ===== ECA SECTION ===== -->
+<section id="eca" class="section">
+    <h2>Extra Curricular Activities</h2>
+    <div class="stagger-container">
+        <div class="eca-card stagger-item">Sports</div>
+        <div class="eca-card stagger-item">Music</div>
+        <div class="eca-card stagger-item">Debate</div>
+    </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="section">
+    <h2>Our Gallery</h2>
+    <div class="stagger-container">
+        <div class="gallery-item stagger-item"><img src="https://via.placeholder.com/300x200" alt="Gallery 1"></div>
+        <div class="gallery-item stagger-item"><img src="https://via.placeholder.com/300x200" alt="Gallery 2"></div>
+        <div class="gallery-item stagger-item"><img src="https://via.placeholder.com/300x200" alt="Gallery 3"></div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <button class="routine-btn">Download Routine</button>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    © 2025 Super Sense School. All Rights Reserved.
+</footer>
+
+<script>
+// ===== SCROLL REVEAL ANIMATIONS =====
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+// ===== STAGGER ANIMATION FOR CONTAINERS =====
+const staggerContainers = document.querySelectorAll('.stagger-container');
+const staggerObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.3 });
+
+staggerContainers.forEach(container => {
+    staggerObserver.observe(container);
+});
+</script>
+</body>
+</html>

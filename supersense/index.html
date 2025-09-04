@@ -18,6 +18,7 @@
             });
         }
     </script>
+
 </head>
 
 <body>
@@ -28,7 +29,7 @@
         <div class="header-content">
             <img src="school-logo.png" alt="School Logo" class="school-logo">
             <div id="school-details">
-                <h1 id="schoolname">SUPER SENSE SECONDARY SCHOOL</h1>
+                <h1 id="schoolname">SUPERSENSE SECONDARY SCHOOL</h1>
                 <p class="school-tagline">Dharapani, Dhanusha &mdash; Excellence in Education</p>
             </div>
         </div>
@@ -50,37 +51,39 @@
         </ul>
     </nav>
     <div class="body-section">
-        <img id="photo" src="image.png" alt="">
+        <img id="photo" src="supersense.png" alt="">
         <div style="display:flex; align-items: center; justify-content:center;">
-            <h1 >Message from Principal</h1>
+            <h1>Message from Principal</h1>
         </div>
-        
+
         <div class="info">
             <div class="principal-photo">
-                <img id="principalphoto" src="image copy.png" alt="Principal">
+                <img id="principalphoto" src="principal.png" alt="Principal">
                 <div id="principal-info">
                     <h3>Principal</h3>
                     <p>Mr. Niroj Dhakal</p>
 
                 </div>
             </div>
-            <div id="quote">
-                <h3>Education is the most powerful tool.</h3>
-            </div>
-            
+            <p class="quote">
+                <span class="quote-symbol">“</span>
+                Education is the most powerful weapon which you can use to change the world.
+                <span class="quote-symbol">”</span>
+            </p>
         </div>
 
         <div id="faculty-section">
-            <h2>FACULTY MEMBERS</h2>
-            <img id="faculty" src="image copy 2.png" alt="">
+            <h2>Faculty Members</h2>
+            <img id="faculty" src="teachers.jpg" alt="">
         </div>
 
         <div class="program" id="programs-section">
-            <h2>Programs</h2>
+            <h1>Programs</h1>
             <div class="courses">
                 <div class="course" onclick="toggleSlide('secondary-slide')">SECONDARY COURSES</div>
                 <div class="course" onclick="toggleSlide('bachelor-slide')">BACHELOR COURSES</div>
             </div>
+
             <div id="secondary-slide" class="slide-info">
                 <h3>Secondary Courses</h3>
                 <ul>
@@ -90,6 +93,7 @@
                     <li>Computer Science (Grade 9-10)</li>
                 </ul>
             </div>
+
             <div id="bachelor-slide" class="slide-info">
                 <h3>Bachelor Courses</h3>
                 <ul>
@@ -103,31 +107,39 @@
 
 
         <div id="eca">
-            <h2>Extra Curriculum Activities</h2>
+            <div class="eca-header">
+                <h1>Extra Curriculum Activities</h1>
+            </div>
+
             <div id="eca-list">
                 <div class="eca-card">
                     <img src="football.png" alt="Football" class="eca-icon"
-                        style="width:60px; height:60px; object-fit: cover;">
+                        style="width:100%; height:100%; object-fit: cover;">
                     <span>Football</span>
                 </div>
                 <div class="eca-card">
-                    <img src="cricket.png" alt="Cricket" class="eca-icon">
+                    <img src="cricket.png" alt="Cricket" class="eca-icon"
+                    style="width:100%; height:100%; object-fit: cover;">
                     <span>Cricket</span>
                 </div>
                 <div class="eca-card">
-                    <img src="badminton.png" alt="Badminton" class="eca-icon">
+                    <img src="badminton.png" alt="Badminton" class="eca-icon"
+                    style="width:100%; height:100%; object-fit: cover;">
                     <span>Badminton</span>
                 </div>
                 <div class="eca-card">
-                    <img src="tabletennis.png" alt="Table Tennis" class="eca-icon">
+                    <img src="tabletennis.png" alt="Table Tennis" class="eca-icon"
+                    style="width:100%; height:100%; object-fit: cover;">
                     <span>Table Tennis</span>
                 </div>
                 <div class="eca-card">
-                    <img src="volleyball.png" alt="Volleyball" class="eca-icon">
+                    <img src="volleyball.png" alt="Volleyball" class="eca-icon"
+                    style="width:100%; height:100%; object-fit: cover;">
                     <span>Volleyball</span>
                 </div>
                 <div class="eca-card">
-                    <img src="chess.png" alt="Chess" class="eca-icon">
+                    <img src="chess.png" alt="Chess" class="eca-icon"
+                    style="width:100%; height:100%; object-fit: cover;">
                     <span>Chess</span>
                 </div>
             </div>
@@ -135,7 +147,10 @@
 
         <!-- ...existing code... -->
         <div class="routine-calendar" id="routine-calendar">
-            <h2>ROUTINES</h2>
+            <div class="routine-header">
+                <h1>ROUTINES</h1>
+            </div>
+
             <div class="routine-grid">
                 <div class="routine-card">
                     <h3>School Routine</h3>
@@ -162,7 +177,10 @@
         </div>
 
         <div id="calendar-section">
-            <h2>CALENDER</h2>
+            <div class="calendar-header">
+                <h1>CALENDER</h1>
+            </div>
+
             <div class="calendar-container">
                 <table class="calendar">
                     <thead>
@@ -229,7 +247,10 @@
 
 
         <div id="notice-board">
-            <h2>NOTICE BOARD</h2>
+            <div id="notice-header">
+                <h1>NOTICE BOARD</h1>
+            </div>
+
             <div id="notice-board"
                 style="background: #fffbe6; border: 2px solid #ffd700; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
                 <ul style="list-style: disc; padding-left: 24px; font-size: 20px;">
@@ -241,7 +262,10 @@
             </div>
         </div>
         <div id="results-section">
-            <h2>RESULTS</h2>
+            <div id="results-header">
+                <h2>RESULTS</h2>
+            </div>
+
             <div class="results-grid">
                 <div class="result-term">
                     FIRST TERM
@@ -294,13 +318,15 @@
             </div>
         </div>
         <div id="transportation-section">
-            <h2>TRANSPORTATION</h2>
+            <div id="transportation-header">
+                <h1>TRANSPORTATION</h1>
+            </div>
             <div style="max-width:1000px; max-height: 1200px; margin: 16px auto;">
-                <iframe
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=85.9000%2C26.9000%2C86.0000%2C27.0000&amp;layer=mapnik"
-                    style="width:100%; height:400px; border:1px solid #ccc; border-radius:8px;" allowfullscreen
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <h2>Our Location</h2>
+                <div style="width: 100%; height: 400px;">
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.911729664807!2d86.04361827536265!3d26.906296376651003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ec115e0fac5db5%3A0x4469b1484da51c!2sSupersense%20secondary%20english%20school%20and%20Yagnyabhumi%20multiple%20campus!5e0!3m2!1sen!2snp!4v1756968279623!5m2!1sen!2snp" 
+                       width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div style="text-align:right; font-size:12px;">
                     <a href="https://www.openstreetmap.org/" target="_blank">View Larger Map</a>
                 </div>
@@ -308,7 +334,10 @@
         </div>
 
         <div id="gallery-section">
-            <h2>GALLERY</h2>
+            <div id="gallery-header">
+                <h2>GALLERY</h2>
+            </div>
+
             <div class="gallery-grid">
                 <div class="gallery-item"><img src="gallery1.jpg" alt="Gallery 1" /></div>
                 <div class="gallery-item"><img src="gallery2.jpg" alt="Gallery 2" /></div>
@@ -329,7 +358,10 @@
         </div>
 
         <div id="questions-section">
-            <h2>PAST YEARS QUESTIONS</h2>
+            <div id="questions-header">
+                <h2>PAST YEARS QUESTIONS</h2>
+            </div>
+
             <div class="questions-form">
                 <div class="form-row">
                     <label for="year-select"><strong>Year:</strong></label>
@@ -426,7 +458,7 @@
         </footer>
         <div id="bottom-section" style="background: #eee; padding: 24px; text-align: center;">
             <h2>DHARAPANI-9, DHANUSHA</h2>
-            <p> Best college in Nepal</p>
+            <p> Best School in Nepal</p>
         </div>
         <script>
             // Show notice popup on page load
