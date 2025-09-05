@@ -18,10 +18,7 @@
             });
         }
     </script>
-
-
 </head>
-
 <body>
     <div class="top-bar">
         Contact us | Login
@@ -57,12 +54,12 @@
             <h1>Message from Principal</h1>
         </div>
 
-        <div class="info">
+        <div class="info reveal">
             <div class="principal-photo">
                 <img id="principalphoto" src="nirojsir.jpg" alt="Principal">
                 <div id="principal-info">
-                    <h3>Principal</h3>
-                    <p>Mr. Niroj Dhakal</p>
+                    <p>Principal</p>
+                    <h3>Mr. Niroj Dhakal</h3>
 
                 </div>
             </div>
@@ -74,12 +71,12 @@
             </p>
         </div>
 
-        <div id="faculty-section">
+        <div id="faculty-section" class="reveal">
             <h2>Faculty Members</h2>
             <img id="faculty" src="teachers.jpg" alt="">
         </div>
 
-        <div class="program" id="programs-section">
+        <div class="program reveal" id="programs-section">
             <h1>Programs</h1>
             <div class="courses">
                 <div class="course" onclick="toggleSlide('secondary-slide')">SECONDARY COURSES</div>
@@ -89,10 +86,10 @@
             <div id="secondary-slide" class="slide-info">
                 <h3>Secondary Courses</h3>
                 <ul>
-                    <>Science (Grade 9-10)</li>
-                        <li>Management (Grade 9-10)</li>
-                        <li>Humanities (Grade 9-10)</li>
-                        <li>Computer Science (Grade 9-10)</li>
+                    <li>Science (Grade 9-10)</li>
+                    <li>Management (Grade 9-10)</li>
+                    <li>Humanities (Grade 9-10)</li>
+                    <li>Computer Science (Grade 9-10)</li>
                 </ul>
             </div>
 
@@ -106,7 +103,7 @@
         </div>
 
 
-        <div id="eca">
+        <div id="eca" class="reveal">
             <div class="eca-header">
                 <h1>Extra Curriculum Activities</h1>
             </div>
@@ -146,29 +143,29 @@
         </div>
 
         <!-- ...existing code... -->
-        <div class="routine-calendar" id="routine-calendar">
+        <div class="routine-calendar reveal" id="routine-calendar">
             <div class="routine-header">
                 <h1>ROUTINES</h1>
             </div>
 
             <div class="routine-grid">
-                <div class="routine-card">
+                <div class="routine-card reveal">
                     <h3>School Routine</h3>
                     <div id="routine">SCHOOL</div>
                     <a href="routine-highschool.pdf" download="HighSchoolRoutine.pdf" class="routine-btn">Download
                         PDF</a>
                 </div>
-                <div class="routine-card">
+                <div class="routine-card reveal">
                     <h3>Campus Routine</h3>
                     <div id="routine">CAMPUS</div>
                     <a href="routine-campus.pdf" download="CampusRoutine.pdf" class="routine-btn">Download PDF</a>
                 </div>
-                <div class="routine-card">
+                <div class="routine-card reveal">
                     <h3>Exam Routine</h3>
                     <div id="routine">EXAM</div>
                     <a href="routine-exam.pdf" download="ExamRoutine.pdf" class="routine-btn">Download PDF</a>
                 </div>
-                <div class="routine-card">
+                <div class="routine-card reveal">
                     <h3>Holiday List</h3>
                     <div id="routine">HOLIDAYS</div>
                     <a href="routine-holidays.pdf" download="HolidayList.pdf" class="routine-btn">Download PDF</a>
@@ -176,7 +173,7 @@
             </div>
         </div>
 
-        <div id="calendar-section">
+        <div id="calendar-section" class="reveal">
             <div class="calendar-header">
                 <h1>CALENDAR</h1>
             </div>
@@ -248,7 +245,7 @@
         </div>
 
 
-        <div id="notice-board">
+        <div id="notice-board" class="reveal">
             <div id="notice-header">
                 <h1>NOTICE BOARD</h1>
             </div>
@@ -263,13 +260,13 @@
                 </ul>
             </div>
         </div>
-        <div id="results-section">
+        <div id="results-section" class="reveal">
             <div id="results-header">
                 <h1>RESULTS</h1>
             </div>
 
             <div class="results-grid">
-                <div class="result-term">
+                <div class="result-term reveal">
                     FIRST TERM
                     <select style="margin-top:12px;">
                         <option disabled selected>Select Class</option>
@@ -281,7 +278,7 @@
                         <option value="10">Class 10</option>
                     </select>
                 </div>
-                <div class="result-term">
+                <div class="result-term reveal">
                     SECOND TERM
                     <select style="margin-top:12px;">
                         <option disabled selected>Select Class</option>
@@ -293,7 +290,7 @@
                         <option value="10">Class 10</option>
                     </select>
                 </div>
-                <div class="result-term">
+                <div class="result-term reveal">
                     THIRD TERM
                     <select style="margin-top:12px;">
                         <option disabled selected>Select Class</option>
@@ -305,7 +302,7 @@
                         <option value="10">Class 10</option>
                     </select>
                 </div>
-                <div class="result-term">
+                <div class="result-term reveal">
                     FOURTH TERM
                     <select style="margin-top:12px;">
                         <option disabled selected>Select Class</option>
@@ -319,7 +316,7 @@
                 </div>
             </div>
         </div>
-        <div id="transportation-section">
+        <div id="transportation-section" class="reveal">
             <div id="transportation-header">
                 <h1>TRANSPORTATION</h1>
             </div>
@@ -337,31 +334,31 @@
             </div>
         </div>
 
-        <div id="gallery-section">
+        <div id="gallery-section" class="reveal">
             <div id="gallery-header">
                 <h2>GALLERY</h2>
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="football.png" alt="Gallery 1" /></div>
-                <div class="gallery-item"><img src="cricket.png" alt="Gallery 2" /></div>
-                <div class="gallery-item"><img src="chess.png" alt="Gallery 3" /></div>
-                <div class="gallery-item"><img src="gallery4.jpg" alt="Gallery 4" /></div>
-                <div class="gallery-item"><img src="tabletennis.png" alt="Gallery 5" /></div>
-                <div class="gallery-item"><img src="volleyball.png" alt="Gallery 6" /></div>
-                <div class="gallery-item"><img src="gallery7.jpg" alt="Gallery 7" /></div>
-                <div class="gallery-item"><img src="gallery8.jpg" alt="Gallery 8" /></div>
-                <div class="gallery-item"><img src="graduation.png" alt="Gallery 9" /></div>
-                <div class="gallery-item"><img src="gallery10.jpg" alt="Gallery 10" /></div>
-                <div class="gallery-item"><img src="gallery11.jpg" alt="Gallery 11" /></div>
-                <div class="gallery-item"><img src="celebration.png" alt="Gallery 12" /></div>
-                <div class="gallery-item"><img src="race.png" alt="Gallery 13" /></div>
-                <div class="gallery-item"><img src="gallery14.jpg" alt="Gallery 14" /></div>
-                <div class="gallery-item"><img src="wallmagazine.png" alt="Gallery 15" /></div>
+                <div class="gallery-item reveal"><img src="football.png" alt="Gallery 1" /></div>
+                <div class="gallery-item reveal"><img src="cricket.png" alt="Gallery 2" /></div>
+                <div class="gallery-item reveal"><img src="chess.png" alt="Gallery 3" /></div>
+                <div class="gallery-item reveal"><img src="gallery4.jpg" alt="Gallery 4" /></div>
+                <div class="gallery-item reveal"><img src="tabletennis.png" alt="Gallery 5" /></div>
+                <div class="gallery-item reveal"><img src="volleyball.png" alt="Gallery 6" /></div>
+                <div class="gallery-item reveal"><img src="gallery7.jpg" alt="Gallery 7" /></div>
+                <div class="gallery-item reveal"><img src="gallery8.jpg" alt="Gallery 8" /></div>
+                <div class="gallery-item reveal"><img src="graduation.png" alt="Gallery 9" /></div>
+                <div class="gallery-item reveal"><img src="gallery10.jpg" alt="Gallery 10" /></div>
+                <div class="gallery-item reveal"><img src="gallery11.jpg" alt="Gallery 11" /></div>
+                <div class="gallery-item reveal"><img src="celebration.png" alt="Gallery 12" /></div>
+                <div class="gallery-item reveal"><img src="race.png" alt="Gallery 13" /></div>
+                <div class="gallery-item reveal"><img src="gallery14.jpg" alt="Gallery 14" /></div>
+                <div class="gallery-item reveal"><img src="wallmagazine.png" alt="Gallery 15" /></div>
             </div>
         </div>
 
-        <div id="questions-section">
+        <div id="questions-section" class="reveal">
             <div id="questions-header">
                 <h2>PAST YEARS QUESTIONS</h2>
             </div>
@@ -417,7 +414,7 @@
         </div>
 
 
-        <div id="notice-popup" style="
+        <div id="notice-popup" class="reveal" style="
         display: none;
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
@@ -457,10 +454,10 @@
         </div>
 
         <!-- ...existing code... -->
-        <footer>
+        <footer class="reveal">
             &copy; 2025 SUPER SENSE SECONDARY SCHOOL. All rights reserved.
         </footer>
-        <div id="bottom-section" style="background: #eee; padding: 24px; text-align: center;">
+        <div id="bottom-section" class="reveal" style="background: #eee; padding: 24px; text-align: center;">
             <h2>DHARAPANI-9, DHANUSHA</h2>
             <p> Best School in Nepal</p>
         </div>
@@ -511,6 +508,23 @@
             // Update every second
             setInterval(updateRealTime, 1000);
         </script>
+        <script>
+            const reveals = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');   // Fade in
+                    } else {
+                        entry.target.classList.remove('active'); // Fade out
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            reveals.forEach(rev => observer.observe(rev));
+        </script>
+
+
 
 
     </div>
